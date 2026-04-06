@@ -1,66 +1,33 @@
+# JobReady – AI Career Assessment Platform
 
-# JobReady Reference Project
-
-A working student reference project for career assessment, skill-gap analysis, and learning recommendations.
-
-## Stack
-- FastAPI
-- Jinja2 templates
-- Vanilla JavaScript
-- Session-based state
+## Overview
+JobReady is an AI-inspired career assessment platform that guides users from profile creation to career recommendation, skill gap analysis, and learning suggestions.
 
 ## Features
-- Profile capture
-- Dynamic assessment flow
-- Career recommendation scoring
-- Skill-gap analysis
-- Learning recommendations
-- Career exploration mode
-- Simple admin dashboard for recent results
+- Profile creation
+- Assessment flow
+- AI-style analysis screen
+- Career recommendation
+- Skill gap detection
+- Learning suggestions
+- Admin dashboard
 
-## Run locally
-```bash
+## Setup (Windows)
+```powershell
+git clone https://github.com/Malachi216/jobready_reference_project.git
+cd jobready_reference_project
 python -m venv .venv
-source .venv/bin/activate  # Windows: .venv\Scripts\activate
+.\.venv\Scripts\activate
 pip install -r requirements.txt
-uvicorn app.main:app --reload
+python -m uvicorn app.main:app --host 127.0.0.1 --port 8010
+start http://127.0.0.1:8010
 ```
 
-Then open `http://127.0.0.1:8000`
+## Common Issues
+- Port error → use 8010
+- Template error → use correct TemplateResponse signature
+- Admin empty → run assessment first
 
-## Project structure
-```text
-jobready_reference_project/
-├── app/
-│   ├── main.py
-│   ├── career_data.py
-│   └── logic.py
-├── templates/
-├── static/
-├── data/
-└── requirements.txt
-```
-
-## Student highlights
-
-### AI & Data students
-- `app/logic.py` → `score_assessment()` for recommendation scoring
-- `app/logic.py` → `compute_skill_gaps()` for missing and weak skills
-- `data/careers.json` → structured career knowledge base
-- Strong extension ideas: replace rules with ML ranking, embeddings, recommendation explainability
-
-### Backend engineers
-- `app/main.py` → API endpoints and session flow
-- Result logging into `data/results_log.json`
-- Strong extension ideas: authentication, PostgreSQL, reusable routers, FastAPI schemas
-
-### Frontend engineers
-- `templates/assessment.html` + `static/js/assessment.js`
-- `templates/career.html` + `static/js/career.js`
-- Strong extension ideas: React migration, charting, better state handling, componentization
-
-### Good next upgrades
-- add user authentication
-- persist assessments in a database
-- add CV review and interview module from the advanced backend draft
-- attach real learning links or LMS resources
+## Screenshots
+Add images under /screenshots folder:
+home.png, profile.png, assessment.png, analyzing.png, career-result.png, learning.png, admin.png
