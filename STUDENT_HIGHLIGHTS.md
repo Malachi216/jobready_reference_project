@@ -1,19 +1,64 @@
-# Student Highlights – JobReady
+# 🎯 Student Highlights – JobReady Project
 
-## AI & Data Students
-- Focus: logic.py, career_data.py
-- Improve recommendation model
+---
+
+## 🧠 AI & Data Science Students
+
+### Focus Areas
+- Recommendation logic (logic.py)
+- Skill gap analysis
+- Dataset structure
+
+### Improvements
 - Replace rules with ML
+- Use embeddings
+- Improve scoring
 
-## Backend Engineers
-- Focus: main.py
-- Improve API structure, add DB, auth
+---
 
-## Frontend Engineers
-- Focus: templates + static/js
-- Improve UI/UX, responsiveness
+## ⚙️ Backend Engineers
 
-## Project Levels
-- Level 1: Run system
-- Level 2: Improve one area
-- Level 3: Add features (ML, auth, deployment)
+### Focus Areas
+- FastAPI routes
+- request handling
+- session logic
+
+### Improvements
+- Add database
+- Add auth
+- Improve architecture
+
+---
+
+## 🎨 Frontend Engineers
+
+### Focus Areas
+- UI flow
+- dynamic rendering
+- result dashboard
+
+### Improvements
+- animations
+- responsiveness
+- React migration
+
+---
+
+## 🚀 Levels
+
+### Level 1
+Run and understand system
+
+### Level 2
+Improve one part
+
+### Level 3
+Add new features
+
+---
+
+## 🧠 Final Advice
+
+Understand → Improve → Extend
+
+Do not try to change everything at once.
