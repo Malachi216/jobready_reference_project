@@ -1,6 +1,6 @@
 # JobReady – AI Career Assessment Platform
 
-## 🚀 Overview
+## Overview
 
 JobReady is an AI-powered career assessment platform that helps students:
 - Discover suitable tech careers
@@ -9,7 +9,7 @@ JobReady is an AI-powered career assessment platform that helps students:
 
 ---
 
-## 🧠 What This Project Teaches
+## What This Project Teaches
 
 This project demonstrates:
 - frontend + backend integration
@@ -19,8 +19,9 @@ This project demonstrates:
 
 ---
 
-## 🏗️ Project Structure
+## Project Structure
 
+```
 jobready_reference_project/
 │
 ├── app/
@@ -30,10 +31,10 @@ jobready_reference_project/
 ├── requirements.txt
 ├── README.md
 └── STUDENT_HIGHLIGHTS.md
-
+```
 ---
 
-## ⚙️ Setup Instructions (Windows)
+## Setup Instructions (Windows)
 
 ```powershell
 git clone https://github.com/Malachi216/jobready_reference_project.git
@@ -47,7 +48,7 @@ start http://127.0.0.1:8010
 
 ---
 
-## 🔄 Application Flow
+## Application Flow
 
 Home → Profile → Assessment → Analysis → Career → Learning → Admin
 
@@ -69,20 +70,34 @@ Ensure no double folder nesting after unzip
 
 ## 📸 Screenshots
 
-Add images under:
+## Screenshots
 
-screenshots/
-- home.png
-- profile.png
-- assessment.png
-- analyzing.png
-- career-result.png
-- learning.png
-- admin.png
+### Home
+![Home](screenshots/home.png)
+
+### Profile Setup
+![Profile](screenshots/profile.png)
+
+### Assessment Flow
+![Assessment](screenshots/assessment.png)
+
+### AI Analysis Screen
+![Analyzing](screenshots/analyse.png)
+
+### Results
+![Career Result](screenshots/results.png)
+
+### Learning Recommendations
+![Admin](screenshots/recommandations.png)
+
+### Career Recommendation 
+![Learning](screenshots/career.png)
+
+
 
 ---
 
-## 🧠 Student Roles
+## Student Roles
 
 ### AI & Data Students
 - Improve recommendation logic
@@ -96,7 +111,7 @@ screenshots/
 
 ---
 
-## 🚀 Extensions
+## Extensions
 
 - AI interview system
 - CV scoring
@@ -105,6 +120,6 @@ screenshots/
 
 ---
 
-## 🧠 Final Note
+## Note
 
 This project simulates a real AI product and is designed for learning, extension, and portfolio use.

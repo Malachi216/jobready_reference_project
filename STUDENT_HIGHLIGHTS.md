@@ -2,7 +2,7 @@
 
 ---
 
-## 🧠 AI & Data Science Students
+## AI & Data Science Students
 
 ### Focus Areas
 - Recommendation logic (logic.py)
@@ -57,7 +57,7 @@ Add new features
 
 ---
 
-## 🧠 Final Advice
+## Final Advice
 
 Understand → Improve → Extend
 
