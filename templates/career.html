@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JobReady</title>
+
+  <link rel="shortcut icon" href="{{ url_for('static', path='assets/logo.png') }}" type="image/x-icon">
+  <link rel="stylesheet" href="{{ url_for('static', path='css/style.css') }}">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <div class="nav-left">
+    <img src="{{ url_for('static', path='assets/logo.png') }}" class="logo">
+    <h1 class="brand">Job<span>Ready</span></h1>
+  </div>
+
+  <nav class="nav-links">
+    <a href="/profile">Profile</a>
+    <a href="/assessment">Assessment</a>
+  </nav>
+</header>
+
+
+<div class="container">
+
+  <h2>Your Career Readiness Result</h2>
+  <p class="result-subtext">
+    Based on your result, here is your recommended career
+  </p>
+
+  <!-- RESULT CARD -->
+  <div class="result-card">
+
+    <div class="recommended-header">
+      <span class="target-icon">🎯</span>
+      <span>Recommended Career</span>
+    </div>
+
+    <!-- DYNAMIC -->
+    <h1 id="career-title">Loading...</h1>
+
+    <p class="score-label">
+      Readiness Score
+      <span class="score-value" id="score-value">0%</span>
+    </p>
+
+    <div class="progress-bar">
+      <div class="progress" id="score-bar" style="width:0%"></div>
+    </div>
+
+    <!-- ADVANCED METRICS (Task 7 & 11) -->
+    <div id="advanced-metrics" style="margin-top: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 15px;"></div>
+
+    <button class="next learning-btn" onclick="location.href='/learning'">
+      View Learning Recommendations
+    </button>
+
+  </div>
+
+
+  <!-- SKILLS -->
+  <div class="skills">
+
+    <!-- TECHNICAL -->
+    <div class="skill-box">
+      <h4>Technical Skills</h4>
+
+      <!-- JS will inject here -->
+      <div id="technical-skills"></div>
+
+    </div>
+
+    <!-- SOFT -->
+    <div class="skill-box">
+      <h4>Soft Skills</h4>
+
+      <!-- JS will inject here -->
+      <div id="soft-skills"></div>
+
+    </div>
+
+  </div>
+
+
+  <!-- SKILL GAP -->
+  <div class="warning skill-gap">
+
+    <h3>⚠ Skill Gap Identified</h3>
+
+    <ul id="gap-list">
+      <li>Loading...</li>
+    </ul>
+
+  </div>
+
+
+  <!-- ACTION BUTTONS -->
+  <div class="buttons result-actions">
+    <button class="back" onclick="location.href='/assessment'">Retake Assessment</button>
+    <button class="next" onclick="location.href='/api/download-report'">Download Report</button>
+  </div>
+
+</div>
+
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 JobReady | AI Career Assessment Platform</p>
+</footer>
+
+
+<!-- LINK YOUR JS -->
+<script src="{{ url_for('static', path='js/career.js') }}"></script>
+
+</body>
+</html>

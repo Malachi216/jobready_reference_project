@@ -1,0 +1,27 @@
+
+{% extends "base.html" %}
+{% block title %}Career Assessment - JobReady{% endblock %}
+{% block content %}
+<section class="assessment-section">
+  <h2>Career Skill Assessment</h2>
+  <p>Answer the questions to evaluate your readiness</p>
+  <div class="progress-area">
+    <p id="progress-text">Questions 1 of 12</p>
+    <div class="progress-bar">
+      <div class="progress" id="progress-bar-fill" style="width: 0%"></div>
+    </div>
+  </div>
+  <div class="question-area">
+    <div class="question-header"><span id="question-category">Category</span></div>
+    <h3 id="question-text">Loading question...</h3>
+    <div id="options-container" class="options-container"></div>
+    <div class="navigation-buttons buttons">
+      <button id="back-btn" class="back">Previous</button>
+      <button id="next-btn" class="next">Next</button>
+    </div>
+  </div>
+</section>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', path='js/assessment.js') }}"></script>
+{% endblock %}

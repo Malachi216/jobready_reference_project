@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JobReady - Analyzing</title>
+<link rel="stylesheet" href="{{ url_for('static', path='css/style.css') }}">
+<style>
+/* Analysis page specific styles */
+.analysis-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.analysis-title {
+    font-size: 2rem;
+    color: #2d4b8f;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.analysis-subtitle {
+    color: #666;
+    margin-bottom: 40px;
+    font-size: 1.1rem;
+}
+
+.progress-container {
+    margin: 30px 0;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background-color: #e9ecef;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.progress {
+    height: 100%;
+    background: linear-gradient(90deg, #3db4ff, #2d4b8f);
+    border-radius: 10px;
+    width: 0%;
+    transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 8px rgba(61, 180, 255, 0.3);
+}
+
+.status-list {
+    list-style: none;
+    padding: 0;
+    margin: 30px 0;
+    text-align: left;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.status-item {
+    padding: 12px 16px;
+    margin: 10px 0;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid #3db4ff;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 0.95rem;
+    color: #333;
+}
+
+.status-item.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.status-item .checkmark {
+    color: #28a745;
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+.completion-message {
+    margin: 30px 0;
+    padding: 20px;
+    background: linear-gradient(135deg, #d4edda, #c3e6cb);
+    border-radius: 12px;
+    border: 1px solid #b8daff;
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 1.1rem;
+    color: #155724;
+    font-weight: 500;
+}
+
+.completion-message.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.next-button-container {
+    margin: 30px 0;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.next-button-container.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.next-button {
+    background: linear-gradient(135deg, #3db4ff, #2d4b8f);
+    color: white;
+    border: none;
+    padding: 14px 32px;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(61, 180, 255, 0.3);
+}
+
+.next-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(61, 180, 255, 0.4);
+    background: linear-gradient(135deg, #2d4b8f, #3db4ff);
+}
+
+.next-button:active {
+    transform: translateY(0);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .analysis-container {
+        padding: 15px;
+    }
+    
+    .analysis-title {
+        font-size: 1.8rem;
+    }
+    
+    .analysis-subtitle {
+        font-size: 1rem;
+    }
+    
+    .status-list {
+        max-width: 100%;
+    }
+    
+    .status-item {
+        font-size: 0.9rem;
+        padding: 10px 12px;
+    }
+    
+    .next-button {
+        padding: 12px 24px;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .analysis-title {
+        font-size: 1.6rem;
+    }
+    
+    .analysis-subtitle {
+        font-size: 0.9rem;
+        margin-bottom: 30px;
+    }
+    
+    .progress-container {
+        margin: 20px 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header class="navbar">
+<div class="nav-left">
+<img src="{{ url_for('static', path='assets/logo.png') }}" alt="JobReady Logo" class="logo">
+<h1 class="brand">Job<span>Ready</span></h1>
+</div>
+
+<nav class="nav-links">
+<a href="/profile">Profile</a>
+<a href="/assessment">Assessment</a>
+</nav>
+</header>
+
+<div class="container analysis-container">
+
+<h2 class="analysis-title">Analyzing Skills...</h2>
+<p class="analysis-subtitle">Our AI is evaluating your skills and matching you with the most suitable tech career.</p>
+
+<div class="progress-container">
+<div class="progress-bar">
+<div class="progress" id="progressBar"></div>
+</div>
+</div>
+
+<div class="status-container">
+<ul class="status-list" id="statusList">
+<li class="status-item" data-step="1">
+<span class="checkmark">✔</span> Processing assessment responses
+</li>
+<li class="status-item" data-step="2">
+<span class="checkmark">✔</span> Calculating skill scores
+</li>
+<li class="status-item" data-step="3">
+<span class="checkmark">✔</span> Matching career path
+</li>
+<li class="status-item" data-step="4">
+<span class="checkmark">✔</span> Generating Recommendations
+</li>
+</ul>
+</div>
+
+<div class="completion-message" id="completionMessage">
+🎉 Result analysis is complete.
+</div>
+
+<div class="next-button-container" id="nextButtonContainer">
+<button class="next-button" onclick="location.href='/career'">Next</button>
+</div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+<p> 2026 JobReady | AI Career Assessment Platform</p>
+</footer>
+
+<script>
+/**
+ * Analysis Animation Controller
+ * Handles sequential display of analysis steps with progress bar animation
+ */
+class AnalysisAnimation {
+    constructor() {
+        this.progressBar = document.getElementById('progressBar');
+        this.statusItems = document.querySelectorAll('.status-item');
+        this.completionMessage = document.getElementById('completionMessage');
+        this.nextButtonContainer = document.getElementById('nextButtonContainer');
+        
+        this.totalSteps = this.statusItems.length;
+        this.currentStep = 0;
+        
+        // Timing configuration (in milliseconds)
+        this.stepDelay = 800; // Delay between each step
+        this.progressDuration = 600; // Duration for progress bar animation
+        
+        this.init();
+    }
+    
+    /**
+     * Initialize the animation sequence
+     */
+    init() {
+        // Start the animation sequence after a brief delay
+        setTimeout(() => {
+            this.startAnimation();
+        }, 500);
+    }
+    
+    /**
+     * Start the sequential animation
+     */
+    startAnimation() {
+        this.showNextStep();
+    }
+    
+    /**
+     * Show the next step in the sequence
+     */
+    showNextStep() {
+        if (this.currentStep >= this.totalSteps) {
+            this.completeAnimation();
+            return;
+        }
+        
+        // Show current status item
+        const currentItem = this.statusItems[this.currentStep];
+        currentItem.classList.add('show');
+        
+        // Update progress bar
+        const progressPercentage = ((this.currentStep + 1) / this.totalSteps) * 100;
+        this.updateProgress(progressPercentage);
+        
+        // Move to next step
+        this.currentStep++;
+        
+        // Schedule next step
+        setTimeout(() => {
+            this.showNextStep();
+        }, this.stepDelay);
+    }
+    
+    /**
+     * Update progress bar with smooth animation
+     */
+    updateProgress(percentage) {
+        this.progressBar.style.width = `${percentage}%`;
+    }
+    
+    /**
+     * Handle animation completion
+     */
+    completeAnimation() {
+        // Ensure progress bar is at 100%
+        this.updateProgress(100);
+        
+        // Show completion message after a brief delay
+        setTimeout(() => {
+            this.completionMessage.classList.add('show');
+            
+            // Show next button after completion message appears
+            setTimeout(() => {
+                this.nextButtonContainer.classList.add('show');
+            }, 600);
+        }, 400);
+    }
+}
+
+/**
+ * Initialize analysis animation when page loads
+ */
+document.addEventListener('DOMContentLoaded', function() {
+    new AnalysisAnimation();
+});
+
+/**
+ * Handle page visibility changes to pause/resume animations
+ */
+document.addEventListener('visibilitychange', function() {
+    if (document.hidden) {
+        // Page is hidden, you could pause animations here if needed
+        console.log('Analysis page hidden');
+    } else {
+        // Page is visible, you could resume animations here if needed
+        console.log('Analysis page visible');
+    }
+});
+</script>
+
+</body>
+</html>

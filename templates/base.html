@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}JobReady{% endblock %}</title>
+  <link rel="shortcut icon" href="{{ url_for('static', path='assets/logo.png') }}" type="image/png">
+  <link rel="stylesheet" href="{{ url_for('static', path='css/style.css') }}">
+  {% block extra_head %}{% endblock %}
+</head>
+<body>
+<header class="navbar">
+  <div class="nav-left">
+    <img src="{{ url_for('static', path='assets/logo.png') }}" alt="JobReady Logo" class="logo">
+    <h1 class="brand">Job<span>Ready</span></h1>
+  </div>
+  <nav class="nav-links">
+    <a href="/">Home</a>
+    <a href="/profile">Profile</a>
+    <a href="/assessment">Assessment</a>
+    <a href="/learning">Learning</a>
+    <a href="/admin">Admin</a>
+  </nav>
+</header>
+{% block content %}{% endblock %}
+<footer>
+  <p>© 2026 JobReady | AI Career Assessment Platform</p>
+</footer>
+{% block scripts %}{% endblock %}
+</body>
+</html>

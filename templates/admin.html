@@ -1,0 +1,18 @@
+
+{% extends "base.html" %}
+{% block title %}Admin Dashboard - JobReady{% endblock %}
+{% block content %}
+<div class="container">
+  <h2>Admin Dashboard</h2>
+  <h3>Recent Results</h3>
+  {% if results %}
+  <ul style="text-align:left; max-width:520px; margin:0 auto;">
+    {% for r in results %}
+    <li><strong>{{ r.name }}</strong> — {{ r.career }} ({{ r.score }}%)</li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p>No results have been completed yet.</p>
+  {% endif %}
+</div>
+{% endblock %}

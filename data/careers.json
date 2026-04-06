@@ -1,0 +1,414 @@
+{
+  "AI Engineer": {
+    "category": "AI & Data",
+    "average_salary": "$95k-$135k",
+    "growth_rate": "High growth",
+    "description": "Build intelligent systems using machine learning, deep learning, and model deployment workflows.",
+    "required_skills": {
+      "Python": 1.0,
+      "Machine Learning": 1.0,
+      "Deep Learning": 0.9,
+      "TensorFlow/PyTorch": 0.8,
+      "Data Modeling": 0.6,
+      "Problem Solving": 0.7,
+      "Analytical Thinking": 0.8,
+      "Creativity": 0.5
+    },
+    "resources": {
+      "Python": [
+        "Python for Everybody",
+        "Automate the Boring Stuff with Python"
+      ],
+      "Machine Learning": [
+        "Andrew Ng Machine Learning Specialization",
+        "Hands-On Machine Learning"
+      ],
+      "Deep Learning": [
+        "DeepLearning.AI courses",
+        "Dive into Deep Learning"
+      ],
+      "TensorFlow/PyTorch": [
+        "PyTorch Tutorials",
+        "TensorFlow Developer Path"
+      ]
+    },
+    "icon": "aieng.png"
+  },
+  "Backend Developer": {
+    "category": "Backend",
+    "average_salary": "$80k-$120k",
+    "growth_rate": "Strong demand",
+    "description": "Design APIs, databases, and server-side systems that power applications.",
+    "required_skills": {
+      "Python": 0.7,
+      "Java/Node": 0.7,
+      "APIs": 1.0,
+      "Databases": 1.0,
+      "Server Architecture": 0.9,
+      "Logical Thinking": 0.7,
+      "Collaboration": 0.5,
+      "Problem Solving": 0.8
+    },
+    "resources": {
+      "APIs": [
+        "REST API Design Best Practices",
+        "FastAPI Tutorial"
+      ],
+      "Databases": [
+        "SQLBolt",
+        "Designing Data-Intensive Applications"
+      ],
+      "Server Architecture": [
+        "System Design Primer",
+        "Backend Engineering Roadmap"
+      ]
+    },
+    "icon": "backend.png"
+  },
+  "Cloud Engineer": {
+    "category": "Cloud",
+    "average_salary": "$90k-$130k",
+    "growth_rate": "High growth",
+    "description": "Deploy and manage systems in AWS, Azure, or GCP with reliability and scale.",
+    "required_skills": {
+      "Cloud Platforms": 1.0,
+      "Cloud Architecture": 0.9,
+      "Networking": 0.8,
+      "Virtualization": 0.6,
+      "Communication": 0.5,
+      "Troubleshooting": 0.8,
+      "Adaptability": 0.6
+    },
+    "resources": {
+      "Cloud Platforms": [
+        "AWS Cloud Practitioner Essentials",
+        "Azure Fundamentals"
+      ],
+      "Networking": [
+        "Practical Networking",
+        "Computer Networking: A Top-Down Approach"
+      ]
+    },
+    "icon": "cloud.png"
+  },
+  "Cybersecurity Analyst": {
+    "category": "Cybersecurity",
+    "average_salary": "$85k-$125k",
+    "growth_rate": "High growth",
+    "description": "Protect systems and data through threat detection, security analysis, and risk reduction.",
+    "required_skills": {
+      "Network Security": 1.0,
+      "Cryptography": 0.8,
+      "Threat Detection": 0.9,
+      "Security Tools": 0.8,
+      "Attention to Detail": 0.8,
+      "Critical Thinking": 0.8,
+      "Risk Analysis": 0.7
+    },
+    "resources": {
+      "Network Security": [
+        "Cisco Intro to Cybersecurity",
+        "TryHackMe paths"
+      ],
+      "Threat Detection": [
+        "Blue Team Labs Online",
+        "Security Onion docs"
+      ]
+    },
+    "icon": "cyber.png"
+  },
+  "Data Analyst": {
+    "category": "AI & Data",
+    "average_salary": "$70k-$105k",
+    "growth_rate": "Strong demand",
+    "description": "Turn data into insights using spreadsheets, SQL, dashboards, and statistics.",
+    "required_skills": {
+      "Excel": 0.9,
+      "SQL": 1.0,
+      "Data Visualization": 1.0,
+      "Statistics": 0.8,
+      "Analytical Thinking": 0.9,
+      "Communication": 0.6,
+      "Attention to Detail": 0.7
+    },
+    "resources": {
+      "SQL": [
+        "SQLBolt",
+        "Mode SQL Tutorial"
+      ],
+      "Data Visualization": [
+        "Microsoft Power BI Learning",
+        "Tableau Public Training"
+      ],
+      "Statistics": [
+        "Khan Academy Statistics",
+        "Think Stats"
+      ]
+    },
+    "icon": "data.png"
+  },
+  "Data Engineer": {
+    "category": "AI & Data",
+    "average_salary": "$95k-$135k",
+    "growth_rate": "High growth",
+    "description": "Build data pipelines, ETL systems, and scalable infrastructure for analytics and AI.",
+    "required_skills": {
+      "Python": 0.8,
+      "Data Pipelines": 1.0,
+      "ETL": 0.9,
+      "Big Data": 0.8,
+      "Problem Solving": 0.8,
+      "System Thinking": 0.7,
+      "Collaboration": 0.5
+    },
+    "resources": {
+      "Data Pipelines": [
+        "Data Engineering Zoomcamp",
+        "Apache Airflow docs"
+      ],
+      "Big Data": [
+        "Spark by Example",
+        "Databricks Academy"
+      ]
+    },
+    "icon": "data.png"
+  },
+  "Data Scientist": {
+    "category": "AI & Data",
+    "average_salary": "$90k-$140k",
+    "growth_rate": "High growth",
+    "description": "Apply machine learning and statistics to build predictive models and extract insights.",
+    "required_skills": {
+      "Python/R": 0.8,
+      "Machine Learning": 1.0,
+      "Data Mining": 0.8,
+      "Statistical Modeling": 0.9,
+      "Analytical Thinking": 0.9,
+      "Curiosity": 0.6,
+      "Problem Solving": 0.8
+    },
+    "resources": {
+      "Machine Learning": [
+        "scikit-learn tutorials",
+        "Hands-On Machine Learning"
+      ],
+      "Statistical Modeling": [
+        "Introduction to Statistical Learning",
+        "StatQuest"
+      ]
+    },
+    "icon": "datascience.png"
+  },
+  "DevOps Engineer": {
+    "category": "Backend",
+    "average_salary": "$95k-$135k",
+    "growth_rate": "Strong demand",
+    "description": "Automate deployments, manage infrastructure, and improve delivery reliability.",
+    "required_skills": {
+      "CI/CD": 1.0,
+      "Docker": 0.9,
+      "Kubernetes": 0.8,
+      "Cloud Platforms": 0.8,
+      "Collaboration": 0.6,
+      "Problem Solving": 0.8,
+      "Adaptability": 0.6
+    },
+    "resources": {
+      "CI/CD": [
+        "GitHub Actions docs",
+        "GitLab CI/CD tutorials"
+      ],
+      "Docker": [
+        "Docker getting started",
+        "Kubernetes Basics"
+      ]
+    },
+    "icon": "cloud.png"
+  },
+  "Frontend Developer": {
+    "category": "Frontend",
+    "average_salary": "$75k-$115k",
+    "growth_rate": "Strong demand",
+    "description": "Build interfaces with HTML, CSS, JavaScript, and modern UI frameworks.",
+    "required_skills": {
+      "HTML/CSS": 1.0,
+      "JavaScript": 1.0,
+      "React/Vue": 0.9,
+      "UI Frameworks": 0.7,
+      "Creativity": 0.6,
+      "Communication": 0.5,
+      "Attention to Detail": 0.7
+    },
+    "resources": {
+      "HTML/CSS": [
+        "MDN HTML/CSS Guides",
+        "freeCodeCamp Responsive Web Design"
+      ],
+      "JavaScript": [
+        "JavaScript.info",
+        "Eloquent JavaScript"
+      ],
+      "React/Vue": [
+        "React Official Tutorial",
+        "Vue Essentials"
+      ]
+    },
+    "icon": "frontend.png"
+  },
+  "Full Stack Developer": {
+    "category": "Full Stack",
+    "average_salary": "$85k-$125k",
+    "growth_rate": "Strong demand",
+    "description": "Work across frontend and backend to deliver full digital products.",
+    "required_skills": {
+      "HTML/CSS": 0.8,
+      "JavaScript": 0.9,
+      "Backend Frameworks": 0.9,
+      "Databases": 0.8,
+      "Problem Solving": 0.8,
+      "Time Management": 0.5,
+      "Collaboration": 0.5
+    },
+    "resources": {
+      "Backend Frameworks": [
+        "FastAPI Tutorial",
+        "Django Girls Tutorial"
+      ],
+      "Databases": [
+        "SQLBolt",
+        "Prisma Data Guide"
+      ]
+    },
+    "icon": "frontend.png"
+  },
+  "Machine Learning Engineer": {
+    "category": "AI & Data",
+    "average_salary": "$100k-$150k",
+    "growth_rate": "High growth",
+    "description": "Operationalize machine learning models and production ML systems.",
+    "required_skills": {
+      "Python": 0.9,
+      "ML Algorithms": 1.0,
+      "Data Processing": 0.8,
+      "Model Deployment": 0.9,
+      "Analytical Thinking": 0.8,
+      "Problem Solving": 0.8,
+      "Innovation": 0.5
+    },
+    "resources": {
+      "ML Algorithms": [
+        "Google ML Crash Course",
+        "FastAI"
+      ],
+      "Model Deployment": [
+        "MLOps Zoomcamp",
+        "BentoML docs"
+      ]
+    },
+    "icon": "aieng.png"
+  },
+  "Mobile App Developer": {
+    "category": "Frontend",
+    "average_salary": "$80k-$120k",
+    "growth_rate": "Steady demand",
+    "description": "Build mobile experiences with native and cross-platform technologies.",
+    "required_skills": {
+      "Java/Kotlin": 0.8,
+      "Swift": 0.8,
+      "Flutter/React Native": 0.9,
+      "Mobile UI Design": 0.7,
+      "Creativity": 0.5,
+      "Problem Solving": 0.7,
+      "User Empathy": 0.6
+    },
+    "resources": {
+      "Flutter/React Native": [
+        "Flutter docs",
+        "React Native docs"
+      ],
+      "Mobile UI Design": [
+        "Material Design",
+        "Human Interface Guidelines"
+      ]
+    },
+    "icon": "frontend.png"
+  },
+  "Product Manager": {
+    "category": "Product",
+    "average_salary": "$95k-$145k",
+    "growth_rate": "Strong demand",
+    "description": "Guide product strategy, prioritization, and stakeholder communication.",
+    "required_skills": {
+      "Product Strategy": 1.0,
+      "Market Analysis": 0.8,
+      "Agile": 0.8,
+      "Product Lifecycle": 0.8,
+      "Leadership": 0.8,
+      "Communication": 0.8,
+      "Decision Making": 0.7
+    },
+    "resources": {
+      "Product Strategy": [
+        "Product School resources",
+        "Inspired by Marty Cagan"
+      ],
+      "Agile": [
+        "Scrum Guide",
+        "Agile Product Management resources"
+      ]
+    },
+    "icon": "product.png"
+  },
+  "QA Engineer": {
+    "category": "Backend",
+    "average_salary": "$70k-$105k",
+    "growth_rate": "Steady demand",
+    "description": "Ensure product quality through testing, automation, and bug reporting.",
+    "required_skills": {
+      "Software Testing": 1.0,
+      "Automation Tools": 0.9,
+      "Bug Tracking": 0.7,
+      "Attention to Detail": 0.8,
+      "Analytical Thinking": 0.7,
+      "Communication": 0.5
+    },
+    "resources": {
+      "Software Testing": [
+        "Ministry of Testing",
+        "Selenium documentation"
+      ],
+      "Automation Tools": [
+        "Playwright docs",
+        "Cypress docs"
+      ]
+    },
+    "icon": "analysis.png"
+  },
+  "UI/UX Designer": {
+    "category": "Frontend",
+    "average_salary": "$75k-$115k",
+    "growth_rate": "Strong demand",
+    "description": "Design digital experiences through research, wireframes, prototypes, and interface design.",
+    "required_skills": {
+      "Figma": 1.0,
+      "Wireframing": 0.8,
+      "Prototyping": 0.9,
+      "User Research": 0.8,
+      "Interaction Design": 0.8,
+      "Creativity": 0.8,
+      "Empathy": 0.7,
+      "Communication": 0.6
+    },
+    "resources": {
+      "Figma": [
+        "Figma Learn",
+        "DesignCourse Figma tutorials"
+      ],
+      "User Research": [
+        "Nielsen Norman Group articles",
+        "Google UX Design Certificate"
+      ]
+    },
+    "icon": "form.png"
+  }
+}

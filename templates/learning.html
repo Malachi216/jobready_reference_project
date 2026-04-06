@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Learning & Career Exploration - JobReady</title>
+
+<link rel="shortcut icon" href="{{ url_for('static', path='assets/logo.png') }}" type="image/x-icon">
+<link rel="stylesheet" href="{{ url_for('static', path='css/style.css') }}">
+<style>
+/* Enhanced Learning Page Styles */
+.learning-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    color: #2d4b8f;
+    margin-bottom: 10px;
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.mode-selector {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.mode-btn {
+    padding: 12px 24px;
+    border: 2px solid #3db4ff;
+    background: white;
+    color: #3db4ff;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.mode-btn.active {
+    background: linear-gradient(135deg, #3db4ff, #2d4b8f);
+    color: white;
+}
+
+.mode-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(61, 180, 255, 0.3);
+}
+
+/* Learning Recommendations Section */
+.learning-section {
+    display: none;
+}
+
+.learning-section.active {
+    display: block;
+}
+
+.recommendations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.learning-card {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.learning-card:hover {
+    transform: translateY(-5px);
+}
+
+.learning-card h3 {
+    color: #2d4b8f;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.learning-card .skill-level {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.skill-level.beginner {
+    background: #e8f5e8;
+    color: #2e7d32;
+}
+
+.skill-level.intermediate {
+    background: #fff3e0;
+    color: #f57c00;
+}
+
+.skill-level.advanced {
+    background: #fce4ec;
+    color: #c2185b;
+}
+
+.resource-list {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+}
+
+.resource-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.resource-list li:last-child {
+    border-bottom: none;
+}
+
+.resource-list a {
+    color: #3db4ff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.resource-list a:hover {
+    text-decoration: underline;
+}
+
+/* Career Exploration Section */
+.exploration-section {
+    display: none;
+}
+
+.exploration-section.active {
+    display: block;
+}
+
+.career-exploration-container {
+    margin-bottom: 40px;
+}
+
+.exploration-intro {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: linear-gradient(135deg, #f0f8ff, #e6f3ff);
+    border-radius: 15px;
+}
+
+.career-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.career-card {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.career-card:hover {
+    transform: translateY(-3px);
+    border-color: #3db4ff;
+}
+
+.career-card.selected {
+    border-color: #2d4b8f;
+    background: linear-gradient(135deg, #f8fbff, #f0f7ff);
+}
+
+.career-card h4 {
+    color: #2d4b8f;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.career-card .category {
+    display: inline-block;
+    padding: 4px 10px;
+    background: #3db4ff;
+    color: white;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+}
+
+.career-stats {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0;
+    font-size: 0.9rem;
+}
+
+.career-stats span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.career-description {
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-bottom: 15px;
+}
+
+.required-skills {
+    margin-top: 15px;
+}
+
+.required-skills h5 {
+    font-size: 0.9rem;
+    color: #2d4b8f;
+    margin-bottom: 8px;
+}
+
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.skill-tag {
+    padding: 3px 8px;
+    background: #f0f0f0;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    color: #555;
+}
+
+.exploration-actions {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.explore-btn {
+    background: linear-gradient(135deg, #3db4ff, #2d4b8f);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.explore-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(61, 180, 255, 0.4);
+}
+
+.explore-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.loading-spinner {
+    display: none;
+    text-align: center;
+    padding: 40px;
+}
+
+.loading-spinner.active {
+    display: block;
+}
+
+.spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3db4ff;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .learning-container {
+        padding: 15px;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .mode-selector {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .recommendations-grid,
+    .career-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header class="navbar">
+<div class="nav-left">
+<img src="{{ url_for('static', path='assets/logo.png') }}" alt="JobReady Logo" class="logo">
+<h1 class="brand">Job<span>Ready</span></h1>
+</div>
+
+<nav class="nav-links">
+<a href="/">Home</a>
+<a href="/profile">Profile</a>
+<a href="/assessment">Assessment</a>
+</nav>
+</header>
+
+<div class="container learning-container">
+
+<div class="section-header">
+<h2 class="section-title">Learning & Career Exploration</h2>
+<p class="section-subtitle">Personalized learning recommendations and career path exploration</p>
+</div>
+
+<!-- Mode Selector -->
+<div class="mode-selector">
+<button class="mode-btn active" onclick="switchMode('learning')">
+📚 Learning Recommendations
+</button>
+<button class="mode-btn" onclick="switchMode('exploration')">
+🔍 Career Exploration
+</button>
+</div>
+
+<!-- Learning Recommendations Section -->
+<div class="learning-section active" id="learningSection">
+<div class="recommendations-grid" id="learningGrid">
+    <!-- Learning recommendations will be loaded here -->
+    <div class="loading-spinner active">
+        <div class="spinner"></div>
+        <p>Loading your personalized recommendations...</p>
+    </div>
+</div>
+</div>
+
+<!-- Career Exploration Section -->
+<div class="exploration-section" id="explorationSection">
+<div class="exploration-intro">
+<h3>🚀 Explore New Career Paths</h3>
+<p>Discover and assess your fit for different career paths. Select up to 5 careers to explore through a focused assessment.</p>
+</div>
+
+<div class="career-exploration-container">
+    <div class="career-grid" id="careerGrid">
+        <!-- Career options will be loaded here -->
+        <div class="loading-spinner active">
+            <div class="spinner"></div>
+            <p>Loading career options...</p>
+        </div>
+    </div>
+    
+    <div class="exploration-actions">
+        <button class="explore-btn" id="exploreBtn" onclick="startExploration()" disabled>
+            Start Career Exploration Assessment
+        </button>
+        <p style="margin-top: 10px; color: #666; font-size: 0.9rem;">
+            <span id="selectedCount">0</span>/5 careers selected
+        </p>
+    </div>
+</div>
+</div>
+
+</div>
+
+<!-- Navigation -->
+<div class="buttons result-actions">
+<button class="back" onclick="location.href='/career'">← Back to Results</button>
+</div>
+
+</div>
+
+<!-- Footer -->
+<footer>
+<p>© 2026 JobReady | AI Career Assessment Platform</p>
+</footer>
+
+<script>
+class LearningExplorationManager {
+    constructor() {
+        this.currentMode = 'learning';
+        this.selectedCareers = new Set();
+        this.availableCareers = [];
+        this.learningData = null;
+        
+        this.init();
+    }
+    
+    async init() {
+        await this.loadLearningRecommendations();
+        await this.loadCareerExplorationOptions();
+    }
+    
+    async loadLearningRecommendations() {
+        try {
+            const response = await fetch('/api/result');
+            const data = await response.json();
+            
+            if (data.error) {
+                this.showNoRecommendations();
+                return;
+            }
+            
+            this.learningData = data;
+            this.renderLearningRecommendations(data);
+            
+        } catch (error) {
+            console.error('Error loading recommendations:', error);
+            this.showError('learning');
+        }
+    }
+    
+    async loadCareerExplorationOptions() {
+        try {
+            const response = await fetch('/api/career-exploration', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+            const data = await response.json();
+            
+            if (data.success) {
+                this.availableCareers = data.careers;
+                this.renderCareerOptions(data.careers);
+            } else {
+                this.showError('exploration');
+            }
+            
+        } catch (error) {
+            console.error('Error loading career options:', error);
+            this.showError('exploration');
+        }
+    }
+    
+    renderLearningRecommendations(data) {
+        const grid = document.getElementById('learningGrid');
+        
+        if (!data.gaps || !data.gaps.resources || Object.keys(data.gaps.resources).length === 0) {
+            this.showNoRecommendations();
+            return;
+        }
+        
+        let html = '';
+        
+        for (const [skill, resources] of Object.entries(data.gaps.resources)) {
+            const level = this.determineSkillLevel(skill, data.skills);
+            
+            html += `
+                <div class="learning-card">
+                    <h3>Learn ${skill}</h3>
+                    <span class="skill-level ${level}">${level.charAt(0).toUpperCase() + level.slice(1)} Level</span>
+                    
+                    <p>Recommended resources to bridge your skill gap:</p>
+                    <ul class="resource-list">
+                        ${resources.map(resource => `
+                            <li>
+                                <a href="#" onclick="openResource('${resource}')">${resource}</a>
+                            </li>
+                        `).join('')}
+                    </ul>
+                    
+                    <button class="next" onclick="startSkillLearning('${skill}')">
+                        Start Learning Path
+                    </button>
+                </div>
+            `;
+        }
+        
+        grid.innerHTML = html;
+    }
+    
+    showNoRecommendations() {
+        const grid = document.getElementById('learningGrid');
+        grid.innerHTML = `
+            <div style="text-align: center; grid-column: 1 / -1; padding: 40px; background: #f9f9f9; border-radius: 15px;">
+                <h3 style="color: #2d4b8f; margin-bottom: 15px;">🎉 Congratulations!</h3>
+                <p style="font-size: 1.1rem; margin-bottom: 20px;">You have no major skill gaps for your recommended career path!</p>
+                <p style="color: #666;">You're JobReady! Check back later for advanced specialization courses or explore new career paths.</p>
+                <button class="next" onclick="switchMode('exploration')" style="margin-top: 20px;">
+                    Explore Other Career Paths
+                </button>
+            </div>
+        `;
+    }
+    
+    renderCareerOptions(careers) {
+        const grid = document.getElementById('careerGrid');
+        
+        let html = '';
+        
+        careers.forEach(career => {
+            html += `
+                <div class="career-card" onclick="toggleCareerSelection('${career.name}', this)">
+                    <h4>${career.name}</h4>
+                    <span class="category">${career.category}</span>
+                    
+                    <div class="career-stats">
+                        <span>💰 ${career.average_salary}</span>
+                        <span>📈 ${career.growth_rate}</span>
+                    </div>
+                    
+                    <p class="career-description">${career.description}</p>
+                    
+                    <div class="required-skills">
+                        <h5>Key Skills Required:</h5>
+                        <div class="skill-tags">
+                            ${Object.keys(career.required_skills || {}).slice(0, 3).map(skill => `
+                                <span class="skill-tag">${skill}</span>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+        
+        grid.innerHTML = html;
+    }
+    
+    determineSkillLevel(skill, skills) {
+        const skillScore = skills[skill] || skills[skill.replace(/\s+/g, '')] || 0;
+        
+        if (skillScore >= 80) return 'advanced';
+        if (skillScore >= 50) return 'intermediate';
+        return 'beginner';
+    }
+    
+    showError(mode) {
+        const container = mode === 'learning' ? 
+            document.getElementById('learningGrid') : 
+            document.getElementById('careerGrid');
+        
+        container.innerHTML = `
+            <div style="text-align: center; padding: 40px;">
+                <p style="color: #dc3545;">Error loading data. Please try again later.</p>
+                <button class="next" onclick="location.reload()" style="margin-top: 15px;">
+                    Retry
+                </button>
+            </div>
+        `;
+    }
+}
+
+// Global functions
+function switchMode(mode) {
+    // Update button states
+    document.querySelectorAll('.mode-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    event.target.classList.add('active');
+    
+    // Update section visibility
+    document.querySelectorAll('.learning-section, .exploration-section').forEach(section => {
+        section.classList.remove('active');
+    });
+    
+    if (mode === 'learning') {
+        document.getElementById('learningSection').classList.add('active');
+    } else {
+        document.getElementById('explorationSection').classList.add('active');
+    }
+    
+    learningManager.currentMode = mode;
+}
+
+function toggleCareerSelection(careerName, element) {
+    if (learningManager.selectedCareers.has(careerName)) {
+        learningManager.selectedCareers.delete(careerName);
+        element.classList.remove('selected');
+    } else {
+        if (learningManager.selectedCareers.size >= 5) {
+            alert('You can select maximum 5 careers for exploration.');
+            return;
+        }
+        learningManager.selectedCareers.add(careerName);
+        element.classList.add('selected');
+    }
+    
+    updateExplorationButton();
+}
+
+function updateExplorationButton() {
+    const count = learningManager.selectedCareers.size;
+    document.getElementById('selectedCount').textContent = count;
+    
+    const exploreBtn = document.getElementById('exploreBtn');
+    exploreBtn.disabled = count === 0;
+    
+    if (count > 0) {
+        exploreBtn.textContent = `Start Assessment (${count} careers)`;
+    } else {
+        exploreBtn.textContent = 'Start Career Exploration Assessment';
+    }
+}
+
+async function startExploration() {
+    if (learningManager.selectedCareers.size === 0) {
+        alert('Please select at least one career to explore.');
+        return;
+    }
+    
+    const careers = Array.from(learningManager.selectedCareers);
+    
+    try {
+        const response = await fetch('/api/start-exploration', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                careers: careers
+            })
+        });
+        
+        const data = await response.json();
+        
+        if (data.success) {
+            // Redirect to assessment with exploration mode
+            window.location.href = '/assessment';
+        } else {
+            alert('Error starting exploration: ' + data.error);
+        }
+        
+    } catch (error) {
+        console.error('Error starting exploration:', error);
+        alert('Error starting exploration. Please try again.');
+    }
+}
+
+function openResource(resource) {
+    // In a real implementation, this would open the actual resource
+    alert(`Opening resource: ${resource}\n\nIn a full implementation, this would navigate to the actual learning material.`);
+}
+
+function startSkillLearning(skill) {
+    // In a real implementation, this would start a structured learning path
+    alert(`Starting learning path for ${skill}\n\nIn a full implementation, this would provide a structured learning journey with progress tracking.`);
+}
+
+// Initialize the learning manager
+let learningManager;
+document.addEventListener('DOMContentLoaded', function() {
+    learningManager = new LearningExplorationManager();
+});
+</script>
+
+</body>
+</html>

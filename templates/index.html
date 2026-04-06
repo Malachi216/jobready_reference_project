@@ -1,0 +1,42 @@
+
+{% extends "base.html" %}
+{% block title %}JobReady Home{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="container">
+    <h2>Discover career paths that match your skills</h2>
+    <p>JobReady is a student-friendly reference project for AI career assessment, skill-gap analysis, and learning recommendations.</p>
+    <div class="buttons" style="justify-content:center; gap:12px; margin-top:20px;">
+      <button class="next" onclick="location.href='/profile'">Start Assessment</button>
+      <button class="back" onclick="location.href='/learning'">Explore Careers</button>
+    </div>
+  </div>
+</section>
+
+<section class="how-it-works">
+  <h3>How it works</h3>
+  <div class="workflow">
+    <img src="{{ url_for('static', path='assets/icons/user.png') }}" width="45" alt="user">
+    <span>Create Profile</span>
+    <span class="arrow">→</span>
+    <img src="{{ url_for('static', path='assets/icons/form.png') }}" width="45" alt="form">
+    <span>Take Assessment</span>
+    <span class="arrow">→</span>
+    <img src="{{ url_for('static', path='assets/icons/ai.png') }}" width="45" alt="ai">
+    <span>AI Analysis</span>
+    <span class="arrow">→</span>
+    <img src="{{ url_for('static', path='assets/icons/career.png') }}" width="45" alt="career">
+    <span>Career Recommendation</span>
+  </div>
+</section>
+
+<div class="container">
+  <h2>Reference tracks built into this project</h2>
+  <div class="career-grid">
+    <div class="course-card"><img src="{{ url_for('static', path='assets/icons/datascience.png') }}"><h3>AI & Data Students</h3><p>Recommendation logic, scoring, skill-gap analysis, and explainable results.</p></div>
+    <div class="course-card"><img src="{{ url_for('static', path='assets/icons/backend.png') }}"><h3>Backend Engineers</h3><p>API design, session state, result logging, and data-driven recommendations.</p></div>
+    <div class="course-card"><img src="{{ url_for('static', path='assets/icons/frontend.png') }}"><h3>Frontend Engineers</h3><p>Profile forms, assessment UX, progress tracking, and result dashboards.</p></div>
+  </div>
+  <p style="margin-top:20px; color:#666;">Current reference project includes {{ career_count }} careers students can explore.</p>
+</div>
+{% endblock %}
