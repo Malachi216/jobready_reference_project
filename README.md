@@ -30,7 +30,15 @@ jobready_reference_project/
 ├── data/
 ├── requirements.txt
 ├── README.md
-└── STUDENT_HIGHLIGHTS.md
+├── STUDENT_HIGHLIGHTS.md
+└── screenshots/
+    ├── home.png
+    ├── profile.png
+    ├── assessment.png
+    ├── analyse.png
+    ├── career.png
+    ├── recommendations.png
+    └── results.png
 ```
 ---
 
@@ -88,11 +96,10 @@ Ensure no double folder nesting after unzip
 ![Career Result](screenshots/results.png)
 
 ### Learning Recommendations
-![Admin](screenshots/recommandations.png)
+![Admin](screenshots/recommendations.png)
 
 ### Career Recommendation 
 ![Learning](screenshots/career.png)
-
 
 
 ---
