@@ -37,7 +37,7 @@ jobready_reference_project/
     ├── assessment.png
     ├── analyse.png
     ├── career.png
-    ├── recommendations.png
+    ├── recommendation.png
     └── results.png
 ```
 ---
@@ -96,7 +96,7 @@ Ensure no double folder nesting after unzip
 ![Career Result](screenshots/results.png)
 
 ### Learning Recommendations
-![Admin](screenshots/recommendations.png)
+![Admin](screenshots/recommendation.png)
 
 ### Career Recommendation 
 ![Learning](screenshots/career.png)
