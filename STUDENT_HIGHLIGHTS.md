@@ -5,7 +5,7 @@
 ## AI & Data Science Students
 
 ### Focus Areas
-- Recommendation logic (logic.py
+- Recommendation logic (logic.py)
 - Skill gap analysis
 - Dataset structure
 
