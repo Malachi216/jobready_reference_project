@@ -5,7 +5,7 @@
 JobReady is an AI-powered career assessment platform that helps students:
 - Discover suitable tech careers
 - Identify skill gaps
-- Receive learning recommendations
+- Receive  recommendations
 
 ---
 
