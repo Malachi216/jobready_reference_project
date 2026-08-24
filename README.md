@@ -19,6 +19,10 @@ This project demonstrates:
 
 ---
 
+## Live Demo
+
+🚀 **Deployed Application:** https://jobreferenceproject.vercel.app
+
 ## Project Structure
 
 ```
